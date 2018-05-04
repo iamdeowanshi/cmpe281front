@@ -11,22 +11,34 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-        <div class="container-fluid">
-                <div id="header">
-                        <label id="headerRow">
+        
+                <div id="header" style="background:#E67E22">
+                        <!-- <label id="headerRow">
                            Add Burger
-                         </label>  
+                         </label>   -->
+                         <img src="burger_latest.gif" height=200px width=600px>
                 </div> </br> </br>
-                    <center>
+                <div>
+                   
                          <fieldset>
-                          Title :  <input type="text" id="title"> </br> </br> </br>
-                          Price :  <input type="text" id="price"> </br> </br> </br>
+                        <div class="col-md-12" style="vertical-align: middle;justify-content: center;">
+                          <!-- Code :  <input type="text" id="code" style="width:70px"> </br> </br> </br> -->
+                          Burger Title :  <input type="text" id="title"> </br> </br> </br>
+                          Price :  <input type="text" id="price" style="width:50px" value="$"> </br> </br> </br>
                           Description : <textarea id="description" rows="5" cols="50"></textarea> </br> </br>
-                          <button id="save" onclick="saveBurger()">Save Item</button>
-                          <button id="cancel">Cancel Item</button>
-                         </fieldset> 
-                    </center>    
-        </div>
+                         ,<!-- <button id="save" onclick="createBurger()">Save Item</button> -->
+                         <!-- <button id="delete" onclick="deleteBurger()">Delete Item</button> -->
+                         <div style="float:left">
+                        <button id="save" class="btn btn-success add-cart" onclick="createBurger()">Save</button>
+                         <button class="btn btn-primary" id="cancel">Cancel</button>
+                         
+                        </div>     
+                        </div>
+
+                         </fieldset>
+         
+                </div>   
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
  <script src="saveBurger.js"></script>
  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </body>

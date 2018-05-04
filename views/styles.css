@@ -10,27 +10,75 @@ div#itemlist fieldset {
     display:block;
     margin-left: auto;
     margin-right: auto;
-    width : 60%;
+    width : 80%;
     height : 100vh;
     background-color: 	#4a4a4a;
     border-radius: 5px;
 }
 
 /* odd no of starter will display text black */
-div#itemlist fieldset label.container:nth-child(odd){
+/* div#itemlist fieldset label.container:nth-child(odd){
     color : white;
+    padding-top: 30px;
+} */
+
+/* odd no of starter will display text black */
+/* div#result tr.tdrow{
+   background :#ECF0F1;
+    color:black;
+    padding-top: 30px;
+}  */
+div#result tr.tdrow:nth-child(odd){
+    background :#1B2631;
+    color:white;
+    padding-top: 30px;
+} 
+
+div#result tr.tdrow:nth-child(even){
+    background :#ECF0F1;
+    color:black;
     padding-top: 30px;
 }
 
 /* even no of starter will display white text */
-div#itemlist fieldset label.container:nth-child(even){
+/* div#itemlist fieldset label.container:nth-child(even){
     color : black;
     padding-top: 30px;
-}
+} */
 
 .btn.add-cart{
     padding-right : 60px;
     background-color: green;
+    width : 60px;
+    padding : 6px 3px;
+    font-size: 10px;
+    float : right;
+    display: inline;
+}
+
+/*For delete Burger button */
+.btn.btn-danger{
+    padding-right : 60px; 
+    background-color: red; 
+    width : 60px;
+    padding : 6px 3px;
+    font-size: 10px;
+    float : right;
+    display: inline;
+}
+.btn.btn-info{
+    padding-right : 60px; 
+    background-color:#73D0E6; 
+    width : 60px;
+    padding : 6px 3px;
+    font-size: 10px;
+    float : right;
+    display: inline;
+}
+
+.btn.btn-warning{
+    padding-right : 60px; 
+    background-color:#D9872F; 
     width : 60px;
     padding : 6px 3px;
     font-size: 10px;
@@ -45,13 +93,8 @@ fieldset label:nth-child(even){
 
 /*Heading for each page */
 h1#heading{
-    font-size: 50px;
+    font-size: 20px;
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-    color: white;
-}
-
-body h5{
-    color: white;
 }
 
 /*Buttons for admin tasks in Burger.html */
@@ -59,8 +102,6 @@ div#adminTasks button{
    width : 80px;
    float : left;
 }
-
-
 
 /*for createBurger.html page header */
 div#header{
@@ -70,11 +111,37 @@ div#header{
 }
 
 fieldset #title{
-    width : 500px;
+    width : 300px;
 }
 
-fieldset {
-    height: 700px;
+.btn.moreInfo{
+    float :right;
+    width : 70px;
+    height : 28px;
+    font-size : 12px
+
 }
 
+div#description span{
+    font-size : 35px;
+}
 
+fieldset#review{
+    background-color:#D6EAF8;
+    width : 100%;
+    height : 170px;
+    padding-top : 10px;
+}
+
+fieldset#review button{
+   
+    float : right;
+    
+}
+
+.btn.btn-primary {
+    float :left;
+    width : 70px;
+    height : 28px;
+    font-size : 12px
+}

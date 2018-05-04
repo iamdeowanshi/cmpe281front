@@ -41,15 +41,24 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><a href="https://vr.google.com"><img src="mcdonalds.png"  height = 25  width = 30 scale="0"> McDonalds</a></li>
-        <li><a href="https://unity3d.com"> <img src="white_castle.png"  height = 30  width = 30 scale="0"> White Castle </a></li>
+       <li><a href="https://www.mcdonalds.com/us/en-us.html"><img src="mcdonalds.png"  height = 25  width = 30 scale="0"> McDonalds</a></li>
+        <li><a href="https://www.whitecastle.com/"> <img src="white_castle.png"  height = 30  width = 30 scale="0"> White Castle </a></li>
           
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown"> More Resources <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="#">Payment</a></li>
+             <li><a href="/secondary_landing">Order Food</a></li>
+            <li class="divider"></li>
+            
+            <li><a href="/paymentHistory">Payment History</a></li>
+            <li class="divider"></li>
+            <li><a href="/addEmployee"> Add Employee</a></li>
              <li class="divider"></li>
-            <li><a href="#">Order</a></li>
+            <li><a href="/showEmployees"> Show all Employees</a></li>
+            <li class="divider"></li>
+            <li><a href="/searchEmployee"> Search Employee</a></li>
+            <li class="divider"></li>
+            <li><a href="/showBlockchain"> Show Blockchain </a></li>
            
           </ul>
         </li>
@@ -69,39 +78,35 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
-
 <form action = "/payment" method = "POST">
-      <div style="color: white">
-                <div class = "col-md-3 selectContainer" id = "form">
+  <div style="color: white">
+          <div class="row">
+            <div class="col-lg-4 col-lg-offset-4">
+                
+                   
+                  
                     <div class="form-group">
-                        <label for="exampleInputEmail1">ID</label>
-                        <input class="form-control" id="exampleInputEmail1"  placeholder="Enter ID" name = "ID">
+                            <label for="employee_field"> Card Holder Name </label>
+                            <input class="form-control" id="payment_field" placeholder="Please type in your name" name = "CardHolderName">
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputPassword1">Last Name</label>
-                        <input class="form-control" id="exampleInputPassword1" placeholder="Password" name = "CardNumber">
+                            <label for="employee_field">Card Number</label>
+                            <input class="form-control" id="payment_field" placeholder="Please type in your card number" name = "cardNumber">
                     </div>
                     <div class="form-group">
-                            <label for="exampleInputPassword1">Gender</label>
-                            <input class="form-control" id="exampleInputPassword1" placeholder="Password" name = "OrderID">
+                            <label for="employee_field">Card Type</label>
+                            <input class="form-control" id="payment_field" placeholder="Please type in card type" name = "cardType">
                     </div>
                     <div class="form-group">
-                            <label for="exampleInputPassword1">Age</label>
-                            <input class="form-control" id="exampleInputPassword1" placeholder="Password" name = "CardType">
-                    </div>
-                    <div class="form-group">
-                            <label for="exampleInputPassword1">ID</label>
-                            <input class="form-control" id="exampleInputPassword1" placeholder="Password" name = "CardHolderName">
-                    </div>
-                    <div class="form-group">
-                            <label for="exampleInputPassword1">Salary</label>
-                            <input class="form-control" id="exampleInputPassword1" placeholder="Password" name = "Amount">
+                            <label for="employee_field">Amount</label>
+                            <input class="form-control" id="payment_field" placeholder="Please enter amount" name = "amount">
                     </div>
                     
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </div>
-            </div>
-          </form>
+              </div>
+        </div>
+  </form>
 
 
     <!-- /#wrapper -->
