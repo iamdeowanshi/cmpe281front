@@ -1,0 +1,80 @@
+/* Starter image */
+div#starter img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* list of starters */
+div#itemlist fieldset {
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
+    width : 60%;
+    height : 100vh;
+    background-color: 	#4a4a4a;
+    border-radius: 5px;
+}
+
+/* odd no of starter will display text black */
+div#itemlist fieldset label.container:nth-child(odd){
+    color : white;
+    padding-top: 30px;
+}
+
+/* even no of starter will display white text */
+div#itemlist fieldset label.container:nth-child(even){
+    color : black;
+    padding-top: 30px;
+}
+
+.btn.add-cart{
+    padding-right : 60px;
+    background-color: green;
+    width : 60px;
+    padding : 6px 3px;
+    font-size: 10px;
+    float : right;
+    display: inline;
+}
+
+/* background for each starter item */
+fieldset label:nth-child(even){
+    background-color : #e6e6e6;
+}
+
+/*Heading for each page */
+h1#heading{
+    font-size: 50px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    color: white;
+}
+
+body h5{
+    color: white;
+}
+
+/*Buttons for admin tasks in Burger.html */
+div#adminTasks button{
+   width : 80px;
+   float : left;
+}
+
+
+
+/*for createBurger.html page header */
+div#header{
+    background-color: black;
+    color : white;
+    text-align: center;
+}
+
+fieldset #title{
+    width : 500px;
+}
+
+fieldset {
+    height: 700px;
+}
+
+
