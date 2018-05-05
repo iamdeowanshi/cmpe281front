@@ -195,7 +195,7 @@ app.post('/addEmployee', function(req, res) {
     var ID = parseInt(req.body.id, 10);
     var Salary = parseInt(req.body.salary, 10);
 
-  axios.post('http://54.67.33.0:80/employee', {
+  axios.post('http://54.67.33.0:5000/employee', {
         FirstName: Firstname,
         LastName: LastName,
         Gender: Gender,
@@ -246,7 +246,7 @@ app.get('/deleteEmployee', function(req, res) {
 app.post('/deleteEmployee', function(req, res) {
   var ID = req.body.deleteEmployee_id
  
-  axios.delete('http://54.67.33.0:80/employee/delete/'+ID)
+  axios.delete('http://54.67.33.0:5000/employee/delete/'+ID)
     .then(function(response) {
      
     })
@@ -273,7 +273,7 @@ app.post('/payment', function(req, res) {
 
     //var userID = "Bruce.d"
 
-  axios.post('https://18.205.192.131:80/payment', {
+  axios.post('https://18.205.192.131:5000/payment', {
         OrderId: OrderID,
         CardHolderName: CardHolderName,
         CardNumber: cardNumber,
@@ -357,7 +357,7 @@ function EmployeeReport() {
   var space = '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
   $s.append( '<table class = "table">')
   $s.append('<thead> <tr> <th> ID </th>  <th>  First Name  </th><th>  Last Name  </th> <th>  Gender  </th> <th>  Age </th> <th>  Salary  </th> </tr> </thead>');
-  axios.get('http://54.67.33.0:80/employees')
+  axios.get('http://54.67.33.0:5000/employees')
     .then(function (response) {
       for (var i = 0; i < response.data.length; i ++) {
            $s.append('<tbody> <tr>');
@@ -389,7 +389,7 @@ function searchEmployee() {
     var ID = $('#search_employee_field').val()
     
    
-     axios.get('http://54.67.33.0:80/employee/'+ID)
+     axios.get('http://54.67.33.0:5000/employee/'+ID)
     .then(function(response) {
      
         localStorage.setItem("employee_first_name", response.data.firstname);
@@ -448,7 +448,7 @@ function showPayment() {
       $s.append(' <thead> <tr>   <th>  Serial Number  </th><th>  User Id  </th> <th>  Card Number  </th> <th>  Order Id </th> <th>  Card Type </th> <th>  Card Holde Name </th>< <th>  Amount </th>/tr> </thead>')
       
 
-  axios.get('http://18.205.192.131:80/payment/' + userID)
+  axios.get('http://18.205.192.131:5000/payment/' + userID)
     .then(function (response) {
       for (var i = 0; i < response.data.length; i ++) {
           
