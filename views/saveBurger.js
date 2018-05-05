@@ -25,12 +25,11 @@ function deleteBurger()
         Code : code
     }
     console.log(burgerData); 
-    axios.delete('http://127.0.0.1:3305/item',{ data: { Title:title,Price:price,Description:description,Code:code }})
+    axios.delete('http://52.53.149.11:3305/item',{ data: { Title:title,Price:price,Description:description,Code:code }})
       .then(function (response) {
           console.log(response);
           alert(response.data.Item)
           location.href = 'burger.html'
-
         })
         .catch(function (error) {
           console.log(error);
@@ -40,7 +39,7 @@ function deleteBurger()
 
 function fetchBurger(){
 
-    axios.get('http://127.0.0.1:3305/displayitem',{ "Content-Type": "application/json"})
+    axios.get('http://52.53.149.11:3305/displayitem',{ "Content-Type": "application/json"})
     .then(function (response) {
         //console.log(response)
         // console.log(response.data[1]);
@@ -72,7 +71,7 @@ function fetchBurger(){
         for(var i=0;i<result.length;i++)
         {
             s +='<tr class="tdrow">';
-            s +='<td  style="border: 1px solid #dddddd;"><label class="container"><div style="float:left"><span>Code:'+" "+result[i]+'</span></br> <span>'+result[++i]+'</span></br><span>'+result[++i]+'</span></br><span>'+result[++i]+'</span></div><div style="float:right">&nbsp;&nbsp;<button type="button" class="btn btn-success add-cart" id="bacon">Add to Cart</button>&nbsp;&nbsp;<button type="button" class="btn btn-primary moreInfo" id="moreInfo" style="float:right" onclick="location.href=\'PuristReview.html\'">Review</button></div><div style="float:right"><input type="text" id="itemcount" style="width:40px;color:black"></div></label></td>';
+            s +='<td  style="border: 1px solid #dddddd;"><label class="container"><div style="float:left"><span>Code:'+" "+result[i]+'</span></br> <span>'+result[++i]+'</span></br><span>'+result[++i]+'</span></br><span>'+result[++i]+'</span></div><div style="float:right">&nbsp;&nbsp;<button type="button" class="btn btn-success add-cart" id="bacon">Add to Cart</button>&nbsp;&nbsp;<button type="button" class="btn btn-primary moreInfo" id="moreInfo" style="float:right" onclick="review()">Review</button></div><div style="float:right"><input type="text" id="itemcount" style="width:40px;color:black"></div></label></td>';
             s +='</tr>';
         }
         s +='</table>'
@@ -103,7 +102,7 @@ function createBurger(){
         Description : description,
         Code : productCode
     } 
-    axios.post('http://localhost:3305/createitem',burgerData)
+    axios.post('http://52.53.149.11:3305/createitem',burgerData)
     .then(function (response) {
         console.log(response.data.Item);
         alert(response.data.Item);
@@ -125,7 +124,7 @@ function updatePrice(){
         Description : "description",
         Code : code
     }
-      axios.put('http://localhost:3305/item',burgerData)
+      axios.put('http://52.53.149.11:3305/item',burgerData)
       .then(function (response) {
           console.log(response);
           alert(response.data.Item);
@@ -135,4 +134,19 @@ function updatePrice(){
           console.log(error);
         });
 
+}
+
+
+function moreinfo(name, description) {
+
+    var review = {
+        itemname: name,
+        description: description,    
+    }
+
+    localstorage.setItem("reviewname", review)
+
+    location.href = "PuristReview.html"
+    var s='<span>'+localstorage.getItem("reviewname")+'</span>'
+    document.getElementById("result").innerHTML=s;
 }
