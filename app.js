@@ -38,7 +38,7 @@ axios.get('http://localhost:3000/employees')
     });
 */
 
-mongoose.connect('mongodb://heroku_9br8ckft:eooh10mcged2ui0ks8ktunk5a3@ds239047.mlab.com:39047/heroku_9br8ckft');
+mongoose.connect('mongodb://heroku_9br8ckft:eooh10mcged2ui0ks8ktunk5a3@ds239047.mlab.com:39047/heroku_9br8ckft/login');
 
 app.use(require("express-session")({
     secret: "A word",
