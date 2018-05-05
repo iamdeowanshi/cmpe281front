@@ -19,6 +19,7 @@ localStorage = new LocalStorage('./scratch');
 
 
 //Blockchain dependencies
+
 const Blockchain = require('./blockchain');
 const P2pServer = require('./p2p-server')
 
@@ -38,7 +39,7 @@ axios.get('http://localhost:3000/employees')
     });
 */
 
-mongoose.connect('mongodb://cmpe281:cmpe281@ds239047.mlab.com:39047/heroku_9br8ckft');
+mongoose.connect('mongodb://localhost/loginapp');
 
 app.use(require("express-session")({
     secret: "A word",
@@ -92,7 +93,7 @@ app.get('/addBlockchain', function(req, res) {
 })
 
 app.post('/addBlockchain', function(req, res) {
-  console.log("sdsdfsdf")
+  
     var blockData = req.body.blockData;
     console.log(blockData)
     res.redirect("/addBlockchain");
@@ -194,7 +195,7 @@ app.post('/addEmployee', function(req, res) {
     var ID = parseInt(req.body.id, 10);
     var Salary = parseInt(req.body.salary, 10);
 
-  axios.post('http://localhost:5000/employee', {
+  axios.post('http://54.67.33.0:80/employee', {
         FirstName: Firstname,
         LastName: LastName,
         Gender: Gender,
@@ -245,7 +246,7 @@ app.get('/deleteEmployee', function(req, res) {
 app.post('/deleteEmployee', function(req, res) {
   var ID = req.body.deleteEmployee_id
  
-  axios.delete('http://localhost:5000/employee/delete/'+ID)
+  axios.delete('http://54.67.33.0:80/employee/delete/'+ID)
     .then(function(response) {
      
     })
@@ -293,18 +294,28 @@ app.get('/paymentHistory', function(req, res) {
      res.sendFile(curr_dir + '/views/paymentHistory.html')
 })
 
+app.get('/submitComments', function(req, res) {
+    res.sendFile(curr_dir + '/views/submitComments.html')
+})
 
 
-app.listen(process.env.PORT || 5000);
+
+app.listen(4000);
 p2pServer.listen();
 console.log("Running app at port 4000");
 
 function userInfo() {
    
      $('#sign_in_button').on('click', function() { 
-        alert($('#login_username').val())
+        //alert($('#login_username').val())
         localStorage.setItem("username", $('#login_username').val());
         sendUserInfo()
+        var Order = {
+            'userId': localStorage.getItem("username"),
+            'items': []
+        };
+
+        localStorage.setItem('order', JSON.stringify(Order));
        
      })
 }
@@ -319,7 +330,7 @@ app.get('/userInfo', function(req, res) {
 
 function sendUserInfo() {
     var username = localStorage.getItem("username")
-    alert("User name is " + username)
+    //alert("User name is " + username)
     axios.get('/userInfo', {
       username: username
        
@@ -339,13 +350,14 @@ function sendUserInfo() {
 
 
 function EmployeeReport() {
+    $('#username').text(localStorage.getItem("username"))
   var $s = $('#result');
   var extra_space = '&nbsp;&nbsp&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
 
   var space = '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
   $s.append( '<table class = "table">')
   $s.append('<thead> <tr> <th> ID </th>  <th>  First Name  </th><th>  Last Name  </th> <th>  Gender  </th> <th>  Age </th> <th>  Salary  </th> </tr> </thead>');
-  axios.get('http://localhost:5000/employees')
+  axios.get('http://54.67.33.0:80/employees')
     .then(function (response) {
       for (var i = 0; i < response.data.length; i ++) {
            $s.append('<tbody> <tr>');
@@ -369,6 +381,7 @@ function EmployeeReport() {
 
 
 function searchEmployee() {
+    $('#username').text(localStorage.getItem("username"))
    var $s = $('#result');
   
 
@@ -376,7 +389,7 @@ function searchEmployee() {
     var ID = $('#search_employee_field').val()
     
    
-     axios.get('http://localhost:5000/employee/'+ID)
+     axios.get('http://54.67.33.0:80/employee/'+ID)
     .then(function(response) {
      
         localStorage.setItem("employee_first_name", response.data.firstname);
@@ -394,6 +407,7 @@ function searchEmployee() {
 
 
 function showSearchEmployee() {
+    $('#username').text(localStorage.getItem("username"))
     var firstname = localStorage.getItem("employee_first_name")
     var lastname = localStorage.getItem("employee_last_name")
     var gender = localStorage.getItem("employee_gender")
@@ -425,6 +439,7 @@ function showSearchEmployee() {
 }
 
 function showPayment() {
+    $('#username').text(localStorage.getItem("username"))
     
      var userID = localStorage.getItem("username")
      var space = '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
@@ -459,6 +474,7 @@ $s.append('</table>');
 
 
 function showBlockchain() {
+    $('#username').text(localStorage.getItem("username"))
    var space = '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
   var small_space = '&nbsp;&nbsp;&nbsp;';
       var $s = $('#result');
@@ -486,6 +502,10 @@ function showBlockchain() {
     });   
 
 
+}
+
+function secondary_landing() {
+    $('#username').text(localStorage.getItem("username"))
 }
 
 
