@@ -295,7 +295,7 @@ app.get('/paymentHistory', function(req, res) {
 
 
 
-app.listen(4000);
+app.listen(process.env.PORT || 5000);
 p2pServer.listen();
 console.log("Running app at port 4000");
 
