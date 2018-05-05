@@ -25,7 +25,7 @@ function deleteBurger()
         Code : code
     }
     console.log(burgerData); 
-    axios.delete('http://52.53.149.11:3305/item',{ data: { Title:title,Price:price,Description:description,Code:code }})
+    axios.delete('https://52.53.149.11:3305/item',{ data: { Title:title,Price:price,Description:description,Code:code }})
       .then(function (response) {
           console.log(response);
           alert(response.data.Item)
@@ -39,7 +39,7 @@ function deleteBurger()
 
 function fetchBurger(){
 
-    axios.get('http://52.53.149.11:3305/displayitem',{ "Content-Type": "application/json"})
+    axios.get('https://52.53.149.11:3305/displayitem',{ "Content-Type": "application/json"})
     .then(function (response) {
         //console.log(response)
         // console.log(response.data[1]);
@@ -102,7 +102,7 @@ function createBurger(){
         Description : description,
         Code : productCode
     } 
-    axios.post('http://52.53.149.11:3305/createitem',burgerData)
+    axios.post('https://52.53.149.11:3305/createitem',burgerData)
     .then(function (response) {
         console.log(response.data.Item);
         alert(response.data.Item);
@@ -124,7 +124,7 @@ function updatePrice(){
         Description : "description",
         Code : code
     }
-      axios.put('http://52.53.149.11:3305/item',burgerData)
+      axios.put('https://52.53.149.11:3305/item',burgerData)
       .then(function (response) {
           console.log(response);
           alert(response.data.Item);
