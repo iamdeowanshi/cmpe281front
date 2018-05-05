@@ -39,7 +39,7 @@ axios.get('http://localhost:3000/employees')
     });
 */
 
-mongoose.connect('mongodb://localhost/loginapp');
+mongoose.connect('mongodb://cmpe281:cmpe281@ds239047.mlab.com:39047/heroku_9br8ckft'); 
 
 app.use(require("express-session")({
     secret: "A word",
@@ -300,7 +300,7 @@ app.get('/submitComments', function(req, res) {
 
 
 
-app.listen(4000);
+app.listen(process.env.PORT || 5000);
 p2pServer.listen();
 console.log("Running app at port 4000");
 
